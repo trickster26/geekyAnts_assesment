@@ -42,13 +42,13 @@ A comprehensive full-stack application for managing engineering team assignments
 - npm or yarn package manager
 
 ### 1. Clone the Repository
-\`\`\`bash
+```bash
 git clone <your-repo-url>
 cd geetant_assignment
-\`\`\`
+```
 
 ### 2. Install Dependencies
-\`\`\`bash
+```bash
 # Install root dependencies
 npm install
 
@@ -57,28 +57,28 @@ cd backend && npm install
 
 # Install frontend dependencies
 cd ../frontend && npm install
-\`\`\`
+```
 
 ### 3. Environment Setup
-Create a \`.env\` file in the backend directory:
-\`\`\`bash
+Create a `.env` file in the backend directory:
+```bash
 # backend/.env
 DATABASE_URL="file:./dev.db"
 JWT_SECRET="your-super-secret-jwt-key-change-in-production"
 PORT=5000
 NODE_ENV=development
-\`\`\`
+```
 
 ### 4. Database Setup with Prisma
 
 #### 4.1 Generate Prisma Client
-\`\`\`bash
+```bash
 cd backend
 npx prisma generate
-\`\`\`
+```
 
 #### 4.2 Create and Apply Database Migrations
-\`\`\`bash
+```bash
 # Create the initial migration
 npx prisma migrate dev --name init
 
@@ -86,22 +86,22 @@ npx prisma migrate dev --name init
 # - Create the SQLite database file (dev.db)
 # - Apply all schema changes
 # - Generate the Prisma client
-\`\`\`
+```
 
 #### 4.3 Seed the Database (Optional)
-\`\`\`bash
+```bash
 # Populate the database with demo data
 npx prisma db seed
-\`\`\`
+```
 
 #### 4.4 View Database (Optional)
-\`\`\`bash
+```bash
 # Open Prisma Studio to view/edit data
 npx prisma studio
-\`\`\`
+```
 
 #### 4.5 Reset Database (If needed)
-\`\`\`bash
+```bash
 # Reset database and reapply migrations
 npx prisma migrate reset
 
@@ -109,7 +109,7 @@ npx prisma migrate reset
 rm prisma/dev.db
 npx prisma migrate dev --name init
 npx prisma db seed
-\`\`\`
+```
 
 #### 4.6 Database Schema Overview
 The application uses the following main entities:
@@ -122,36 +122,36 @@ The application uses the following main entities:
 **Common Issues:**
 
 1. **"Environment variable not found: DATABASE_URL"**
-   - Ensure \`.env\` file exists in the backend directory
-   - Check that \`DATABASE_URL="file:./dev.db"\` is set
+   - Ensure `.env` file exists in the backend directory
+   - Check that `DATABASE_URL="file:./dev.db"` is set
 
 2. **"Prisma Client not found"**
-   \`\`\`bash
+   ```bash
    npx prisma generate
-   \`\`\`
+   ```
 
 3. **Migration issues**
-   \`\`\`bash
+   ```bash
    # Reset and start fresh
    npx prisma migrate reset
    npx prisma migrate dev --name init
-   \`\`\`
+   ```
 
 4. **Database locked error**
    - Close any database viewers (like DB Browser for SQLite)
    - Restart the backend server
 
 5. **Schema changes not reflected**
-   \`\`\`bash
+   ```bash
    npx prisma generate
    npx prisma migrate dev --name your_change_name
-   \`\`\`
+   ```
 
 ### 5. Start the Application
-\`\`\`bash
+```bash
 # From the root directory, start both backend and frontend
 npm run dev
-\`\`\`
+```
 
 This will start:
 - Backend server on http://localhost:5000
@@ -251,24 +251,24 @@ This project extensively utilized AI tools to accelerate development and ensure 
 ## Architecture Overview
 
 ### Backend Architecture
-\`\`\`
+```
 backend/
 ├── src/
 │   ├── index.js          # Main server file
 │   ├── middleware/       # Authentication middleware
 │   ├── routes/          # API route handlers
 │   └── prisma/          # Database schema and migrations
-\`\`\`
+```
 
 ### Frontend Architecture
-\`\`\`
+```
 frontend/
 ├── src/
 │   ├── components/      # Reusable UI components
 │   ├── pages/          # Main application pages
 │   ├── contexts/       # React context providers
 │   └── utils/          # Utility functions and API client
-\`\`\`
+```
 
 ## Security Features
 
