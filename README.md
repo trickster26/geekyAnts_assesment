@@ -62,6 +62,7 @@ npx prisma db seed
 
 # 6. Start the application
 npm run dev
+
 ```
 
 This will start:
