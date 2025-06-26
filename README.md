@@ -43,7 +43,7 @@ A comprehensive full-stack application for managing engineering team assignments
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/trickster26/geekyAnts_assesment.git
 cd geetant_assignment
 ```
 
