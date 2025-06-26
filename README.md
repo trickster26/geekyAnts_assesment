@@ -39,28 +39,37 @@ A comprehensive full-stack application for managing engineering team assignments
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- npm or yarn package manager
+- npm package manager
 
-### 1. Clone the Repository
+### Quick Start
+Follow these steps to get the project running:
+
 ```bash
-git clone <your-repo-url>
-cd geetant_assignment
+# 1. Setup dependencies
+npm run setup
+
+# 2. Navigate to backend
+cd backend
+
+# 3. Generate Prisma client
+npx prisma generate
+
+# 4. Create and apply database schema
+npx prisma db push
+
+# 5. Seed database with demo data
+npx prisma db seed
+
+# 6. Start the application
+npm run dev
 ```
 
-### 2. Install Dependencies
-```bash
-# Install root dependencies
-npm install
+This will start:
+- Backend server on http://localhost:5000
+- Frontend application on http://localhost:3000
 
-# Install backend dependencies
-cd backend && npm install
-
-# Install frontend dependencies
-cd ../frontend && npm install
-```
-
-### 3. Environment Setup
-Create a `.env` file in the backend directory:
+### Environment Setup
+Ensure you have a `.env` file in the backend directory:
 ```bash
 # backend/.env
 DATABASE_URL="file:./dev.db"
@@ -68,94 +77,6 @@ JWT_SECRET="your-super-secret-jwt-key-change-in-production"
 PORT=5000
 NODE_ENV=development
 ```
-
-### 4. Database Setup with Prisma
-
-#### 4.1 Generate Prisma Client
-```bash
-cd backend
-npx prisma generate
-```
-
-#### 4.2 Create and Apply Database Migrations
-```bash
-# Create the initial migration
-npx prisma migrate dev --name init
-
-# This will:
-# - Create the SQLite database file (dev.db)
-# - Apply all schema changes
-# - Generate the Prisma client
-```
-
-#### 4.3 Seed the Database (Optional)
-```bash
-# Populate the database with demo data
-npx prisma db seed
-```
-
-#### 4.4 View Database (Optional)
-```bash
-# Open Prisma Studio to view/edit data
-npx prisma studio
-```
-
-#### 4.5 Reset Database (If needed)
-```bash
-# Reset database and reapply migrations
-npx prisma migrate reset
-
-# Alternative: Delete and recreate
-rm prisma/dev.db
-npx prisma migrate dev --name init
-npx prisma db seed
-```
-
-#### 4.6 Database Schema Overview
-The application uses the following main entities:
-- **Users**: Authentication and role management (Manager/Engineer)
-- **Projects**: Project information with status and priorities
-- **Assignments**: Many-to-many relationship between Users and Projects
-- **Capacity tracking**: Built into assignments with percentage allocation
-
-#### 4.7 Troubleshooting Prisma Setup
-**Common Issues:**
-
-1. **"Environment variable not found: DATABASE_URL"**
-   - Ensure `.env` file exists in the backend directory
-   - Check that `DATABASE_URL="file:./dev.db"` is set
-
-2. **"Prisma Client not found"**
-   ```bash
-   npx prisma generate
-   ```
-
-3. **Migration issues**
-   ```bash
-   # Reset and start fresh
-   npx prisma migrate reset
-   npx prisma migrate dev --name init
-   ```
-
-4. **Database locked error**
-   - Close any database viewers (like DB Browser for SQLite)
-   - Restart the backend server
-
-5. **Schema changes not reflected**
-   ```bash
-   npx prisma generate
-   npx prisma migrate dev --name your_change_name
-   ```
-
-### 5. Start the Application
-```bash
-# From the root directory, start both backend and frontend
-npm run dev
-```
-
-This will start:
-- Backend server on http://localhost:5000
-- Frontend application on http://localhost:3000
 
 ## Usage
 
