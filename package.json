@@ -4,7 +4,7 @@
   "description": "Engineering Resource Management System",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "dev": "concurrently --raw \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "server:dev": "cd backend && npm run dev",
     "client:dev": "cd frontend && npm start",
     "client:build": "cd frontend && npm run build",
