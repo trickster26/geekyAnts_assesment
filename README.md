@@ -60,7 +60,20 @@ npx prisma db push
 # 5. Seed database with demo data
 npx prisma db seed
 
-# 6. Start the application
+# 6. Generate .env file in backend directory 
+
+# backend/.env
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="your-super-secret-jwt-key-change-in-production"
+PORT=5000
+NODE_ENV=development
+
+# 7. Come out of the backend director to root directory
+
+cd ..
+
+
+# 8. Start the application
 npm run dev
 
 ```
