@@ -60,7 +60,7 @@ npx prisma db push
 # 5. Seed database with demo data
 npx prisma db seed
 
-# 6. Generate .env file in backend directory 
+# 6. Create .env file in backend directory 
 
 # backend/.env
 DATABASE_URL="file:./dev.db"
